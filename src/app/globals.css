@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    --primary-50: 255 242 122;
+    --primary-50: 255 207 35;
     --bg-30: 255 249 237;
     --bg-80: 36 37 41;
     --border-50: 46 47 51;
@@ -16,7 +16,7 @@
     --gray-40: 150 140 136;
     --gray-30: 220 220 221;
     --gray-10: 255 249 237;
-    --text: 36 37 41;
+    --text: 43 43 43;
     --text-secondary: 73 73 73;
     --text-light: 255 249 237;
     --text-light-secondary: 150 140 136;
@@ -69,7 +69,7 @@
   }
 
   body {
-    @apply bg-background-light dark:bg-background text-text dark:text-text-light;
+    @apply bg-background-light text-text;
     width: 100%;
     height: 100vh;
     font-size: 16px;
