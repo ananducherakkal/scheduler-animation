@@ -1,25 +1,34 @@
 import { cn } from "@/utils/shadcn";
 import Image from "next/image";
 import React from "react";
+import { motion } from "framer-motion";
 
 interface IHomeCenterImageProps {
   className?: string;
 }
 
-function HomeCenterImage(props: IHomeCenterImageProps) {
-  const { className } = props;
+const HomeCenterImage = React.forwardRef<HTMLDivElement, IHomeCenterImageProps>(
+  (props, ref) => {
+    const { className } = props;
 
-  return (
-    <div className={cn("w-full max-w-[1000px] h-fit", className)}>
-      <Image
-        src="/images/home-center-board.png"
-        alt="home center board"
-        width="1000"
-        height="571"
-        className="w-full h-full object-contain"
-      />
-    </div>
-  );
-}
+    return (
+      <motion.div
+        className={cn("w-full max-w-[1000px] h-fit relative", className)}
+      >
+        <div
+          className="absolute bg-red-500/20 w-[76.03%] h-[10.85%] top-[39.19%] left-[8.34%] z-30"
+          ref={ref}
+        ></div>
+        <Image
+          src="/images/home-center-board.png"
+          alt="home center board"
+          width="1000"
+          height="571"
+          className="w-full h-full object-contain"
+        />
+      </motion.div>
+    );
+  }
+);
 
 export default HomeCenterImage;

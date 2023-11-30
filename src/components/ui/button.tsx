@@ -28,7 +28,13 @@ export interface IButtonProps
 }
 
 export default function Button(props: IButtonProps) {
-  const { children, className, variant = "default", size = "default" } = props;
+  const {
+    children,
+    className,
+    variant = "default",
+    size = "default",
+    ...otherProps
+  } = props;
 
   const defaultClassName = buttonVariants.default;
   const variantClassName = buttonVariants.variant[variant];
@@ -42,6 +48,7 @@ export default function Button(props: IButtonProps) {
         sizeClassName,
         className
       )}
+      {...otherProps}
     >
       {children}
     </button>

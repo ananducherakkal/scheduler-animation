@@ -1,6 +1,7 @@
 import { cn } from "@/utils/shadcn";
 import React from "react";
 import Button from "../ui/button";
+import styles from "./home.module.css";
 
 interface IHomeTitleProps {
   className?: string;
@@ -10,7 +11,13 @@ function HomeTitle(props: IHomeTitleProps) {
   const { className } = props;
 
   return (
-    <div className={cn("flex flex-col items-center", className)}>
+    <div
+      className={cn(
+        "w-3/5 flex flex-col items-center justify-center mx-auto",
+        className,
+        styles.topSection
+      )}
+    >
       <h1 className="text-8xl font-medium text-center">
         Looking for a better
         <br />
