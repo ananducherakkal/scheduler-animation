@@ -2,7 +2,14 @@ import { cn } from "@/utils/shadcn";
 import React, { useEffect, useRef, useState } from "react";
 import HomeTitle from "./homeTitle";
 import HomeCenterImage from "./homeCenterImage";
-import HomeProfileInitialStation from "./homeProfileInitialStation";
+import HomeProfileImageStation from "./homeProfileImageStation";
+import { useScroll } from "framer-motion";
+import useTargetPosition from "@/hooks/useTargetPosition";
+import { useDispatch, useSelector } from "@/redux/hooks";
+import {
+  setScrollYProgress,
+  setTargetPosition,
+} from "@/redux/features/homeTopSection";
 
 interface IHomeTopSectionProps {
   className?: string;
@@ -11,8 +18,23 @@ interface IHomeTopSectionProps {
 function HomeTopSection(props: IHomeTopSectionProps) {
   const { className } = props;
 
-  const ref = useRef<HTMLDivElement>(null);
+  const dispatch = useDispatch();
+  const homeTopSectionStore = useSelector("homeTopSection");
+
+  const targetRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: targetRef,
+    offset: ["start end", "center center"],
+  });
+
+  const targetPosition = useTargetPosition(targetRef, containerRef);
+
+  useEffect(() => {
+    dispatch(setScrollYProgress(scrollYProgress));
+    dispatch(setTargetPosition(targetPosition));
+  }, [scrollYProgress, targetPosition]);
 
   return (
     <div
@@ -20,8 +42,8 @@ function HomeTopSection(props: IHomeTopSectionProps) {
       ref={containerRef}
     >
       <HomeTitle />
-      <HomeProfileInitialStation targetRef={ref} containerRef={containerRef} />
-      <HomeCenterImage ref={ref} />
+      {homeTopSectionStore.scrollYProgress && <HomeProfileImageStation />}
+      <HomeCenterImage ref={targetRef} />
     </div>
   );
 }

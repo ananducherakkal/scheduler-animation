@@ -5,6 +5,8 @@ export interface ITargetPosition {
   y: number;
   offsetX: number;
   offsetY: number;
+  containerWidth: number;
+  size: number;
 }
 
 const useTargetPosition = (
@@ -16,26 +18,31 @@ const useTargetPosition = (
     y: 0,
     offsetX: 0,
     offsetY: 0,
+    containerWidth: 0,
+    size: 0,
   });
 
   const calculatePosition = () => {
     if (targetRef.current && containerRef.current) {
-      const elementRect = targetRef.current.getBoundingClientRect();
+      const targetRect = targetRef.current.getBoundingClientRect();
       const containerRect = containerRef.current.getBoundingClientRect();
       const containerWidth = containerRef.current.scrollWidth;
       const containerHeight = containerRef.current.scrollHeight;
-      const elementWidth = targetRef.current.scrollWidth / 6;
-      const elementHeight = targetRef.current.scrollHeight;
+      const targetWidth = targetRef.current.scrollWidth / 6;
+      const targetHeight = targetRef.current.scrollHeight;
       const positionX = 0.065;
       const positionY = 0.505;
-      const innerX = elementWidth * positionX;
-      const innerY = elementHeight * positionY;
+      const innerX = targetWidth * positionX;
+      const innerY = targetHeight * positionY;
+      const elementSize = targetWidth * 0.175;
 
       setPosition({
-        y: elementRect.top - containerRect.top + innerY,
-        x: elementRect.left - containerRect.left + innerX,
-        offsetX: elementWidth,
-        offsetY: elementHeight,
+        y: targetRect.top - containerRect.top + innerY,
+        x: targetRect.left - containerRect.left + innerX,
+        offsetX: targetWidth,
+        offsetY: targetHeight,
+        containerWidth,
+        size: elementSize,
       });
     }
   };

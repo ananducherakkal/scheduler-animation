@@ -13,10 +13,10 @@ const HomeCenterImage = React.forwardRef<HTMLDivElement, IHomeCenterImageProps>(
 
     return (
       <motion.div
-        className={cn("w-full max-w-[1000px] h-fit relative", className)}
+        className={cn("w-4/5 max-w-[1000px] h-fit relative", className)}
       >
         <div
-          className="absolute bg-red-500/20 w-[76.03%] h-[10.85%] top-[39.19%] left-[8.34%] z-30"
+          className="absolute w-[76.03%] h-[10.85%] top-[39.19%] left-[8.34%] z-30"
           ref={ref}
         ></div>
         <Image
