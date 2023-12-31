@@ -52,6 +52,8 @@ const useTargetPosition = (
     return () => {
       window.removeEventListener("resize", calculatePosition);
     };
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return position;

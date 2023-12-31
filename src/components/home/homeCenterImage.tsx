@@ -30,5 +30,6 @@ const HomeCenterImage = React.forwardRef<HTMLDivElement, IHomeCenterImageProps>(
     );
   }
 );
+HomeCenterImage.displayName = "HomeCenterImage";
 
 export default HomeCenterImage;

@@ -34,6 +34,8 @@ function HomeTopSection(props: IHomeTopSectionProps) {
   useEffect(() => {
     dispatch(setScrollYProgress(scrollYProgress));
     dispatch(setTargetPosition(targetPosition));
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [scrollYProgress, targetPosition]);
 
   return (
