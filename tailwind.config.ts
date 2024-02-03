@@ -43,6 +43,7 @@ const config: Config = {
           60: "rgb(var(--gray-60) / <alpha-value>)",
           70: "rgb(var(--gray-70) / <alpha-value>)",
           80: "rgb(var(--gray-80) / <alpha-value>)",
+          90: "rgb(var(--gray-90) / <alpha-value>)",
         },
         text: {
           DEFAULT: "rgb(var(--text) / <alpha-value>)",
