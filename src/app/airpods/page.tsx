@@ -1,10 +1,14 @@
+"use client";
+import AirpodsMidSection from "@/components/airpods/airpodsMidSection";
 import AirpodsTopSection from "@/components/airpods/airpodsTopSection";
-import React from "react";
+import { useScroll } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
 
 function AirpodsPage() {
   return (
-    <div className="w-full min-h-screen flex flex-col">
+    <div className="w-full flex flex-col relative">
       <AirpodsTopSection />
+      <AirpodsMidSection />
     </div>
   );
 }
