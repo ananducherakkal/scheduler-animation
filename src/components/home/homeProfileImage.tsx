@@ -36,7 +36,9 @@ function HomeProfileImage(props: IHomeProfileImage) {
         x: `${_position.x}%`,
         y: `${_position.y}%`,
         scale: `${_position.scale}%`,
+        opacity: 0,
       }}
+      whileInView={{ opacity: 1 }}
       style={{
         x,
         y,
@@ -51,8 +53,8 @@ function HomeProfileImage(props: IHomeProfileImage) {
       <Image
         src={imageUrl}
         alt="profile image"
-        width="44"
-        height="44"
+        width="200"
+        height="200"
         className="w-full h-full object-cover"
       />
     </motion.div>

@@ -1,4 +1,5 @@
 "use client";
+import HomeFooter from "@/components/home/homeFooter";
 import HomeTopSection from "@/components/home/homeTopSection";
 import StoreProvider from "@/redux/storeProvider";
 import React, { useRef } from "react";
@@ -9,17 +10,7 @@ function Home() {
       <StoreProvider>
         <HomeTopSection />
       </StoreProvider>
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <HomeFooter />
     </main>
   );
 }
